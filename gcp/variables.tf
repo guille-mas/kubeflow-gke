@@ -25,6 +25,6 @@ variable "gke_password" {
 }
 
 variable "gke_num_nodes" {
-  default     = 3
+  default     = 1 # 3 replaced because I ran out of quota
   description = "number of gke nodes"
 }

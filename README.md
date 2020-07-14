@@ -2,39 +2,41 @@
 
 ## Project structure
 
-- gcp/ \
-GCP/GKE cluster infrastructure-as-code
-- gcp.tf \
-High level infrastructure-as-code; Initialization of terraform module.
-- golang/ \
-Golang app source code
-- Makefile \
-High level cli interface
 - README.md \
 You are here
+- Makefile \
+High level cli interface
+- gcp/ \
+infrastructure-as-code for GKE cluster and Google VPC
+- gcp.tf \
+Initialization of terraform module declared in .gcp/
+- app/ \
+Golang app source code and kubernetes orchestration
 
 ## GNUMake Commands
 
-- setup
-  - setup-gke
-- provision-gke
-  - setup-kubeflow
-- start
-  - start-kubeflow
-- stop
-  - stop-kubeflow
+- `make setup`
+  - create-gke-cluster
+  - provision-gke-cluster
+- `make auth-gcloud`
 
 ## Pre-requisites
 
-- a GCP account
-- [a Google billing account associated to the project](https://console.cloud.google.com/billing/projects?folder&organizationId)
-- a configured gcloud SDK
+- A GCP account
+- [A GCP Project associated with a billing account](https://console.cloud.google.com/billing/projects?folder&organizationId)
+- GCloud SDK
 - kubectl
 
 ## Backlog
 
-- Wire provision-gke-cluster parameters with terraform's module variables for region and gke cluster name
-- [Setup OAuth access to project](https://www.kubeflow.org/docs/gke/deploy/oauth-setup/) (Optional)
+- Wire params passed to gcloud command used in `make provision-gke-cluster` with terraform.tfstate
+- CI/CD with Jenkins and kubernetes running on GKE
+  - See https://www.youtube.com/watch?v=IDoRWieTcMc
+  - See https://cloud.google.com/solutions/jenkins-on-kubernetes-engine-tutorial?hl=es
+  - See https://github.com/GoogleCloudPlatform/continuous-deployment-on-kubernetes
+- [Setup OAuth access to project](https://www.kubeflow.org/docs/gke/deploy/oauth-setup/) (Recommended)
+  - A GSuite account is required to setup this
+  - Future versions of Kubeflow will require this since other authorization flows have been deprecated in Kubeflow
 
 ## Guille's notes
 

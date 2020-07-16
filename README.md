@@ -9,9 +9,7 @@ High level cli interface
 - gcp/ \
 infrastructure-as-code for GKE cluster and Google VPC
 - gcp.tf \
-Initialization of terraform module declared in .gcp/
-- app/ \
-Golang app source code and kubernetes orchestration
+Initialization of terraform module declared in .gcp
 
 ## Pre-requisites
 
@@ -28,11 +26,10 @@ Golang app source code and kubernetes orchestration
 
 ## Removal of the GKE cluster
 
-1. Run `make destroy-google-gke-cluster`
+1. Run `make destroy-gcp`
 
 ## Backlog
 
-- Wire params passed to gcloud command used in `make provision-gke-cluster` with terraform.tfstate
 - CI/CD with Jenkins and kubernetes running on GKE
   - See https://www.youtube.com/watch?v=IDoRWieTcMc
   - See https://cloud.google.com/solutions/jenkins-on-kubernetes-engine-tutorial?hl=es

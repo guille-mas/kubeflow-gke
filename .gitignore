@@ -10,4 +10,4 @@ terraform.tfvars
 # devops utils
 utils/*
 
-k8s/kubeflow/src/.cache/*
+k8s/kubeflow/guille-default/.cache/*

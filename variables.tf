@@ -3,21 +3,16 @@
 ########
 
 variable "project_id" {
-  description = "project id"
+  type        = string
+  description = "GCP project id"
 }
 
 variable "region" {
-  description = "region"
+  type        = string
+  description = "To which region would you like to deploy your GKE infrastructure?"
 }
 
 variable "nodes_per_pool" {
-  description = "number of nodes per pool"
-}
-
-variable "gke_username" {
-  description = "gke username"
-}
-
-variable "gke_password" {
-  description = "gke password"
+  type        = number
+  description = "Number of nodes per pool"
 }

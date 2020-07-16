@@ -1,7 +1,7 @@
 
 # GKE cluster
 resource "google_container_cluster" "primary" {
-  name     = "${var.project_id}-gke"
+  name     = var.project_id
   location = var.region
 
   remove_default_node_pool = true
@@ -10,15 +10,6 @@ resource "google_container_cluster" "primary" {
 
   network    = google_compute_network.vpc.name
   subnetwork = google_compute_subnetwork.subnet.name
-
-  master_auth {
-    username = var.gke_username
-    password = var.gke_password
-
-    client_certificate_config {
-      issue_client_certificate = false
-    }
-  }
 }
 
 # Separately Managed Node Pool
@@ -42,7 +33,7 @@ resource "google_container_node_pool" "primary_nodes" {
     # see https://cloud.google.com/compute/docs/machine-types#n1_machine_type
     machine_type = "n1-standard-4"
 
-    tags         = ["gke-node", "${var.project_id}-gke"]
+    tags         = ["gke-node", var.project_id]
     metadata = {
       disable-legacy-endpoints = "true"
     }

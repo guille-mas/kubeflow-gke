@@ -6,7 +6,6 @@ export ZONE=us-central1
 export KF_NAME=${PROJECT_ID}
 export BASE_DIR=${PWD}
 export KF_DIR=${BASE_DIR}/k8s/kubeflow/${KF_NAME}
-export CONFIG_URI=https://raw.githubusercontent.com/kubeflow/manifests/v1.0-branch/kfdef/kfctl_k8s_istio.v1.0.2.yaml
 export CONFIG_FILE=${KF_DIR}/kfctl_k8s_istio.v1.0.2.yaml
 
 #######################
@@ -33,25 +32,25 @@ deps-linux:
 auth-gcloud:
 # authorize gcloud 
 	gcloud auth application-default login
-	gcloud container clusters get-credentials ${PROJECT_ID}-gke
 
 #######################
 # GCP / GKE
 #######################
 
-deploy-gcp:
+gcp-build:
 # install any missing terraform plugin
 	terraform init
 # update the infrastructure if needed
 	terraform apply -parallelism=100 \
 		-var=project_id=${PROJECT_ID} \
 		-var=region=${GCP_REGION} \
-		-var=gke_username=${GKE_USERNAME} \
-		-var=gke_password=${GKE_PASSWORD} \
-		-var=nodes_per_pool=${GKE_NODES_PER_POOL}
+        -var=nodes_per_pool=1
 
-destroy-gcp:
-	terraform destroy -parallelism=100
+gcp-clean:
+	terraform destroy -parallelism=100 \
+		-var=project_id=${PROJECT_ID} \
+		-var=region=${GCP_REGION} \
+        -var=nodes_per_pool=1
 
 ############
 # Kubeflow
@@ -68,12 +67,11 @@ kubeflow-generate-yaml:
 # Declare every component of the infra in yaml format
 	${BASE_DIR}/utils/kfctl build -V -f ${CONFIG_FILE}
 
-kubeflow-deploy:
+kubeflow-build:
+	gcloud container clusters get-credentials ${PROJECT_ID}
 # deploy the generated infrastructure
 	${BASE_DIR}/utils/kfctl apply -V -f ${CONFIG_FILE}
 
-kubeflow-uninstall:
+kubeflow-clean:
 	${BASE_DIR}/utils/kfctl delete -V -f ${CONFIG_FILE} --delete_storage
 
-
-all: deploy-gcp kubeflow-deploy

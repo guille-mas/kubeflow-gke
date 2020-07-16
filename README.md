@@ -21,16 +21,17 @@ Initialization of terraform module declared in .gcp
 ## Step by step deployment of a GKE cluster with Kubeflow and Istio
 
 1. Install gcloud cli and kfctl cli. The later can be installed in some OSs with `make deps-macos` or `make deps-linux`
-1. Get gcloud credentials with `make auth-gcloud`
-1. Run `make all`
+1. Run `make auth-gcloud`
+1. Run `make gcp-build`
+1. Run `make kubeflow-build`
 
 ## Removal of the GKE cluster
 
-1. Run `make destroy-gcp`
+1. Run `make gcp-clean`
 
 ## Backlog
 
-- CI/CD with Jenkins and kubernetes running on GKE
+- CI/CD with Jenkins worker pod running on GKE
   - See https://www.youtube.com/watch?v=IDoRWieTcMc
   - See https://cloud.google.com/solutions/jenkins-on-kubernetes-engine-tutorial?hl=es
   - See https://github.com/GoogleCloudPlatform/continuous-deployment-on-kubernetes

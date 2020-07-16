@@ -5,7 +5,8 @@ resource "google_container_cluster" "primary" {
   location = var.region
 
   remove_default_node_pool = true
-  initial_node_count       = 1
+  # number of nodes per zone
+  initial_node_count       = var.nodes_per_pool
 
   network    = google_compute_network.vpc.name
   subnetwork = google_compute_subnetwork.subnet.name

@@ -13,19 +13,22 @@ Initialization of terraform module declared in .gcp/
 - app/ \
 Golang app source code and kubernetes orchestration
 
-## GNUMake Commands
-
-- `make setup`
-  - create-gke-cluster
-  - provision-gke-cluster
-- `make auth-gcloud`
-
 ## Pre-requisites
 
 - A GCP account
 - [A GCP Project associated with a billing account](https://console.cloud.google.com/billing/projects?folder&organizationId)
 - GCloud SDK
 - kubectl
+
+## Step by step deployment of a GKE cluster with Kubeflow and Istio
+
+1. Install gcloud cli and kfctl cli. The later can be installed in some OSs with `make deps-macos` or `make deps-linux`
+1. Get gcloud credentials with `make auth-gcloud`
+1. Run `make all`
+
+## Removal of the GKE cluster
+
+1. Run `make destroy-google-gke-cluster`
 
 ## Backlog
 

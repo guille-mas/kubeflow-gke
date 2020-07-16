@@ -6,3 +6,8 @@
 *.tfstate.*
 
 terraform.tfvars
+
+# devops utils
+utils/*
+
+k8s/kubeflow/src/.cache/*

@@ -1,4 +1,15 @@
-# kubeflow-gke
+# Intro
+
+Welcome! By following the instructions below, you should be able to deploy a kubernetes cluster running on Google Cloud Platform GKE, a VPC, Kubeflow, and Istio.
+
+[Kubeflow](https://www.kubeflow.org/) is a portable and scalable machine learning toolkit, that eases the task of deploying machine learning workflows on Kubernetes. \
+Kubeflow provides out-of-the-box:
+- Jupyter notebooks
+- TensorFlow model training job operator
+- TensorFlow Serving container to export trained models to Kubernetes
+- Kubeflow Pipelines for deploying and managing end-to-end ML workflows
+- Istio + Ambassador for ingress
+- And more
 
 ## Project structure
 

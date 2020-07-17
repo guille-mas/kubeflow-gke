@@ -57,7 +57,7 @@ gcp-clean:
 ######
 
 # Generates Kubeflow infrastructure as code in yaml format
-kubeflow-generate-yaml:
+kubeflow-refresh:
 # Ensure gcloud has the correct project and compute/zone.
 	gcloud config set project ${PROJECT_ID}    
 	gcloud config set compute/zone ${ZONE}

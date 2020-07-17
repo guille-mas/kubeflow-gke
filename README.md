@@ -27,7 +27,7 @@ Kubeflow k8s files
 1. Install kfctl locally with `make deps-macos` or `make deps-linux`
 1. Run `make auth-gcloud` and grant gcloud authorization to interact with GCP's k8s API
 1. Run `make gcp-build` to deploy a VPC and a GKE cluster
-1. Wait a few minutes for the VPC and GKE cluster to be ready
+1. You might need to wait a few minutes for the VPC and GKE cluster to be ready
 1. Run `make kubeflow-refresh` to refresh your kubeflow infrastructure's code
 1. Run `make kubeflow-build` to install kubeflow
 

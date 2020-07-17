@@ -73,5 +73,8 @@ kubeflow-build:
 	${BASE_DIR}/utils/kfctl apply -V -f ${CONFIG_FILE}
 
 kubeflow-clean:
-	${BASE_DIR}/utils/kfctl delete -V -f ${CONFIG_FILE} --delete_storage
+	- ${BASE_DIR}/utils/kfctl delete -V -f ${CONFIG_FILE} --delete_storage
 
+all: auth-gcloud gcp-build kubeflow-refresh kubeflow-build
+
+clean: kubeflow-clean gcp-clean

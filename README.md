@@ -23,16 +23,19 @@ Kubeflow k8s files
 ## Step by step deployment of a GKE cluster with Kubeflow and Istio
 
 1. Double check each item at the Pre-requisites section
+1. Double check the settings at .env
 1. Install kfctl locally with `make deps-macos` or `make deps-linux`
-1. Run `make auth-gcloud`
-1. Run `make gcp-build`
+1. Run `make auth-gcloud` and grant gcloud authorization to interact with GCP's k8s API
+1. Run `make gcp-build` to deploy a VPC and a GKE cluster
 1. Wait a few minutes for the VPC and GKE cluster to be ready
 1. Run `make kubeflow-refresh` to refresh your kubeflow infrastructure's code
 1. Run `make kubeflow-build` to install kubeflow
 
-## Removal of the GKE cluster
+- Or cross your fingers and run `make all` ;-)
 
-1. Run `make gcp-clean`
+## Shutdown and remove all the infrastructure
+
+- `make clean`
 
 ## Backlog
 

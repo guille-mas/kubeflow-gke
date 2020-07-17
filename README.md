@@ -10,6 +10,8 @@ High level cli interface
 infrastructure-as-code for GKE cluster and Google VPC
 - gcp.tf \
 Initialization of terraform module declared in .gcp
+- k8s/kubeflow \
+Kubeflow k8s files
 
 ## Pre-requisites
 
@@ -20,7 +22,8 @@ Initialization of terraform module declared in .gcp
 
 ## Step by step deployment of a GKE cluster with Kubeflow and Istio
 
-1. Install gcloud cli and kfctl cli. The later can be installed in some OSs with `make deps-macos` or `make deps-linux`
+1. Double check each item at the Pre-requisites section
+1. Install kfctl locally with `make deps-macos` or `make deps-linux`
 1. Run `make auth-gcloud`
 1. Run `make gcp-build`
 1. Run `make kubeflow-build`

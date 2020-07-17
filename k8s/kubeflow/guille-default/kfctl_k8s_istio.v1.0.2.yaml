@@ -3,9 +3,10 @@ kind: KfDef
 metadata:
   annotations:
     kfctl.kubeflow.io/force-delete: "false"
-  clusterName: gke_guille-default_us-central1_guille-default-gke
+  clusterName: gke_guille-default_us-central1_guille-default
   creationTimestamp: null
-  namespace: guille-excercise
+  name: guille-default
+  namespace: guille-default
 spec:
   applications:
   - kustomizeConfig:
@@ -358,4 +359,7 @@ spec:
   - name: manifests
     uri: https://github.com/kubeflow/manifests/archive/v1.0.2.tar.gz
   version: v1.0.2
-status: {}
+status:
+  reposCache:
+  - localPath: '"/Volumes/Code/opt/dev/kubeflow-gke/k8s/kubeflow/guille-default/.cache/manifests/manifests-1.0.2"'
+    name: manifests

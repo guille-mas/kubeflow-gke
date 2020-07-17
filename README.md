@@ -23,7 +23,6 @@ Kubeflow k8s files
 ## Step by step deployment of a GKE cluster with Kubeflow and Istio
 
 1. Double check each item at the Pre-requisites section
-1. Double check the settings at .env
 1. Install kfctl locally with `make deps-macos` or `make deps-linux`
 1. Run `make auth-gcloud` and grant gcloud authorization to interact with GCP's k8s API
 1. Run `make gcp-build` to deploy a VPC and a GKE cluster
@@ -46,13 +45,3 @@ Kubeflow k8s files
 - [Setup OAuth access to project](https://www.kubeflow.org/docs/gke/deploy/oauth-setup/) (Recommended)
   - A GSuite account is required to setup this
   - Future versions of Kubeflow will require this since other authorization flows have been deprecated in Kubeflow
-
-## Guille's notes
-
-`$ gcloud config configurations list`
-
-```shell
-NAME   IS_ACTIVE  ACCOUNT                PROJECT               COMPUTE_DEFAULT_ZONE  COMPUTE_DEFAULT_REGION
-core   True       guilledevel@gmail.com  guille-default
-ydata  False      guilledevel@gmail.com  exercise-guilledevel
-```

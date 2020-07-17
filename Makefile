@@ -32,6 +32,7 @@ deps-linux:
 auth-gcloud:
 # authorize gcloud 
 	gcloud auth application-default login
+	gcloud config configurations list
 
 #######################
 # GCP / GKE

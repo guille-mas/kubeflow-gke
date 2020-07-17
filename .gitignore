@@ -1,0 +1,13 @@
+# Local .terraform directories
+**/.terraform/*
+
+# .tfstate files
+*.tfstate
+*.tfstate.*
+
+terraform.tfvars
+
+# devops utils
+utils/*
+
+k8s/kubeflow/guille-default/.cache/*

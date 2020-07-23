@@ -11,3 +11,4 @@ terraform.tfvars
 utils/*
 
 k8s/kubeflow/guille-default/.cache/*
+k8s/kubeflow/exercise-guilledevel/.cache/*
